@@ -1,0 +1,20 @@
+.DS_Store
+Thumbs.db
+*.log
+*.log.*
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.zip
+# Do not accidentally publish live server configuration or player data
+server.properties
+ops.json
+whitelist.json
+banned-ips.json
+banned-players.json
+world/
+world_nether/
+world_the_end/
+plugins/Skript/variables.csv
