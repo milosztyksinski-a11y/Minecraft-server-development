@@ -1,0 +1,19 @@
+# Minecraft Server Gameplay Toolkit — Example
+# Demonstrates a per-player cooldown using Skript.
+# Intended for a test server; check compatibility with your Skript version.
+
+options:
+    boost-cooldown: 30 seconds
+
+command /toolkitboost:
+    description: Demo speed boost with a per-player cooldown
+    usage: /toolkitboost
+    executable by: players
+    trigger:
+        if {mgt::boost::%uuid of player%} is set:
+            if difference between now and {mgt::boost::%uuid of player%} is less than {@boost-cooldown}:
+                send "&cSpeed boost is on cooldown. Try again soon." to player
+                stop
+        set {mgt::boost::%uuid of player%} to now
+        apply speed 2 to player for 5 seconds
+        send "&aSpeed boost activated for 5 seconds!" to player
